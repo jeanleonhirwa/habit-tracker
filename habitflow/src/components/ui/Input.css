@@ -1,0 +1,113 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.input-label {
+  font-size: var(--text-subhead);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-body);
+  font-family: var(--font-system);
+  color: var(--text-primary);
+  background-color: var(--fill-tertiary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  min-height: var(--touch-target-min);
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input:focus {
+  border-color: var(--color-blue);
+  background-color: var(--bg-primary);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input--textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: var(--leading-body);
+}
+
+.input-wrapper--error .input {
+  border-color: var(--color-red);
+}
+
+.input-error {
+  font-size: var(--text-footnote);
+  color: var(--color-red);
+}
+
+.input-clear {
+  position: absolute;
+  right: var(--space-3);
+  background-color: var(--fill-secondary);
+  border: none;
+  border-radius: var(--radius-full);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  transition: background-color var(--transition-fast);
+}
+
+.input-clear:hover {
+  background-color: var(--fill-primary);
+}
+
+/* Select */
+.select-wrapper {
+  position: relative;
+}
+
+.select {
+  appearance: none;
+  width: 100%;
+  padding: var(--space-3) var(--space-10) var(--space-3) var(--space-4);
+  font-size: var(--text-body);
+  font-family: var(--font-system);
+  color: var(--text-primary);
+  background-color: var(--fill-tertiary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-height: var(--touch-target-min);
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--color-blue);
+}
+
+.select-icon {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-tertiary);
+}
