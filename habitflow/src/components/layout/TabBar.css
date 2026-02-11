@@ -1,0 +1,79 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--tab-bar-height);
+  background-color: var(--bg-elevated);
+  border-top: 1px solid var(--separator);
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: var(--space-2);
+  padding-bottom: var(--safe-area-bottom);
+  z-index: 100;
+  
+  /* Glassmorphism effect */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(var(--bg-elevated-rgb, 255, 255, 255), 0.85);
+}
+
+[data-theme="dark"] .tab-bar {
+  background-color: rgba(28, 28, 30, 0.85);
+}
+
+.tab-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  min-width: 64px;
+  min-height: var(--touch-target-min);
+  text-decoration: none;
+  color: var(--gray-1);
+  transition: color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-bar__item:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+
+.tab-bar__item--active {
+  color: var(--color-blue);
+}
+
+.tab-bar__item:not(.tab-bar__item--active):active {
+  opacity: 0.7;
+}
+
+.tab-bar__icon {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.tab-bar__item--active .tab-bar__icon {
+  transform: scale(1.05);
+}
+
+.tab-bar__label {
+  font-size: var(--text-caption-2);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Hide label on very small screens */
+@media (max-width: 350px) {
+  .tab-bar__label {
+    display: none;
+  }
+  
+  .tab-bar__item {
+    min-width: 48px;
+  }
+}

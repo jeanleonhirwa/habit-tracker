@@ -1,0 +1,154 @@
+.habit-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.habit-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.habit-form__label {
+  font-size: var(--text-subhead);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Icon Grid */
+.habit-form__icons {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-2);
+}
+
+.habit-form__icon-btn {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fill-tertiary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  min-height: var(--touch-target-min);
+}
+
+.habit-form__icon-btn:hover {
+  background-color: var(--fill-secondary);
+}
+
+.habit-form__icon-btn--active {
+  color: white;
+}
+
+/* Color Selection */
+.habit-form__colors {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.habit-form__color-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.habit-form__color-btn:hover {
+  transform: scale(1.1);
+}
+
+.habit-form__color-btn--active {
+  border-color: var(--text-primary);
+}
+
+.habit-form__color-btn--blue { background-color: var(--color-blue); }
+.habit-form__color-btn--green { background-color: var(--color-green); }
+.habit-form__color-btn--red { background-color: var(--color-red); }
+.habit-form__color-btn--orange { background-color: var(--color-orange); }
+.habit-form__color-btn--purple { background-color: var(--color-purple); }
+.habit-form__color-btn--pink { background-color: var(--color-pink); }
+.habit-form__color-btn--teal { background-color: var(--color-teal); }
+.habit-form__color-btn--indigo { background-color: var(--color-indigo); }
+
+/* Day Selection */
+.habit-form__days {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.habit-form__day-btn {
+  flex: 1;
+  padding: var(--space-2) var(--space-1);
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  font-family: var(--font-system);
+  color: var(--text-secondary);
+  background-color: var(--fill-tertiary);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 36px;
+}
+
+.habit-form__day-btn:hover {
+  background-color: var(--fill-secondary);
+}
+
+.habit-form__day-btn--active {
+  color: white;
+}
+
+/* Count Selector */
+.habit-form__count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.habit-form__count-btn {
+  width: 44px;
+  height: 44px;
+  font-size: var(--text-title-2);
+  font-weight: 500;
+  color: var(--color-blue);
+  background-color: var(--fill-tertiary);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.habit-form__count-btn:hover:not(:disabled) {
+  background-color: var(--fill-secondary);
+}
+
+.habit-form__count-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.habit-form__count-value {
+  font-size: var(--text-title-1);
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Actions */
+.habit-form__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}

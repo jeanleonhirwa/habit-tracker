@@ -1,0 +1,133 @@
+.habit-checkbox {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--gray-3);
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.habit-checkbox:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+.habit-checkbox:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Color variants */
+.habit-checkbox--blue.habit-checkbox--completed {
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+.habit-checkbox--green.habit-checkbox--completed {
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+}
+
+.habit-checkbox--red.habit-checkbox--completed {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+}
+
+.habit-checkbox--orange.habit-checkbox--completed {
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+.habit-checkbox--purple.habit-checkbox--completed {
+  background-color: var(--color-purple);
+  border-color: var(--color-purple);
+}
+
+.habit-checkbox--pink.habit-checkbox--completed {
+  background-color: var(--color-pink);
+  border-color: var(--color-pink);
+}
+
+.habit-checkbox--teal.habit-checkbox--completed {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+.habit-checkbox--indigo.habit-checkbox--completed {
+  background-color: var(--color-indigo);
+  border-color: var(--color-indigo);
+}
+
+/* Inner content */
+.habit-checkbox__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.habit-checkbox__count {
+  font-size: var(--text-caption-1);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.habit-checkbox--completed .habit-checkbox__count {
+  color: white;
+}
+
+/* Progress ring */
+.habit-checkbox__progress {
+  position: absolute;
+  inset: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+}
+
+.habit-checkbox__progress-bg {
+  stroke: var(--gray-4);
+}
+
+.habit-checkbox__progress-fill {
+  stroke: var(--color-blue);
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.habit-checkbox--green .habit-checkbox__progress-fill { stroke: var(--color-green); }
+.habit-checkbox--red .habit-checkbox__progress-fill { stroke: var(--color-red); }
+.habit-checkbox--orange .habit-checkbox__progress-fill { stroke: var(--color-orange); }
+.habit-checkbox--purple .habit-checkbox__progress-fill { stroke: var(--color-purple); }
+.habit-checkbox--pink .habit-checkbox__progress-fill { stroke: var(--color-pink); }
+.habit-checkbox--teal .habit-checkbox__progress-fill { stroke: var(--color-teal); }
+.habit-checkbox--indigo .habit-checkbox__progress-fill { stroke: var(--color-indigo); }
+
+/* Animation */
+.habit-checkbox--animating {
+  animation: checkBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes checkBounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.25); }
+  50% { transform: scale(0.95); }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Hover effect */
+.habit-checkbox:not(:disabled):not(.habit-checkbox--completed):hover {
+  border-color: var(--gray-2);
+  background-color: var(--fill-tertiary);
+}
+
+.habit-checkbox:not(:disabled):active {
+  transform: scale(0.95);
+}
