@@ -1,0 +1,162 @@
+/* HabitFlow Design Tokens - Apple HIG Inspired */
+
+:root {
+  /* Typography - SF Pro approximation using system fonts */
+  --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 
+                 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  
+  /* Type Scale (matching Apple HIG) */
+  --text-large-title: 34px;
+  --text-title-1: 28px;
+  --text-title-2: 22px;
+  --text-title-3: 20px;
+  --text-headline: 17px;
+  --text-body: 17px;
+  --text-callout: 16px;
+  --text-subhead: 15px;
+  --text-footnote: 13px;
+  --text-caption-1: 12px;
+  --text-caption-2: 11px;
+  
+  /* Line Heights */
+  --leading-large-title: 41px;
+  --leading-title-1: 34px;
+  --leading-title-2: 28px;
+  --leading-title-3: 25px;
+  --leading-headline: 22px;
+  --leading-body: 22px;
+  --leading-callout: 21px;
+  --leading-subhead: 20px;
+  --leading-footnote: 18px;
+  --leading-caption-1: 16px;
+  --leading-caption-2: 13px;
+  
+  /* Spacing (8pt grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  
+  /* Border Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+  --spring-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --spring-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  
+  /* Touch targets */
+  --touch-target-min: 44px;
+  
+  /* Layout */
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --tab-bar-height: 83px;
+  --nav-bar-height: 44px;
+}
+
+/* Light Mode (default) */
+:root,
+[data-theme="light"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F2F2F7;
+  --bg-tertiary: #FFFFFF;
+  --bg-grouped: #F2F2F7;
+  --bg-elevated: #FFFFFF;
+  
+  --text-primary: #000000;
+  --text-secondary: rgba(60, 60, 67, 0.85);
+  --text-tertiary: rgba(60, 60, 67, 0.6);
+  --text-quaternary: rgba(60, 60, 67, 0.3);
+  
+  --color-blue: #007AFF;
+  --color-green: #34C759;
+  --color-red: #FF3B30;
+  --color-orange: #FF9500;
+  --color-yellow: #FFCC00;
+  --color-purple: #AF52DE;
+  --color-pink: #FF2D55;
+  --color-teal: #5AC8FA;
+  --color-indigo: #5856D6;
+  
+  --gray-1: #8E8E93;
+  --gray-2: #AEAEB2;
+  --gray-3: #C7C7CC;
+  --gray-4: #D1D1D6;
+  --gray-5: #E5E5EA;
+  --gray-6: #F2F2F7;
+  
+  --separator: rgba(60, 60, 67, 0.29);
+  --separator-opaque: #C6C6C8;
+  
+  --fill-primary: rgba(120, 120, 128, 0.2);
+  --fill-secondary: rgba(120, 120, 128, 0.16);
+  --fill-tertiary: rgba(118, 118, 128, 0.12);
+  
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg-primary: #000000;
+  --bg-secondary: #1C1C1E;
+  --bg-tertiary: #2C2C2E;
+  --bg-grouped: #000000;
+  --bg-elevated: #1C1C1E;
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(235, 235, 245, 0.85);
+  --text-tertiary: rgba(235, 235, 245, 0.6);
+  --text-quaternary: rgba(235, 235, 245, 0.3);
+  
+  --color-blue: #0A84FF;
+  --color-green: #30D158;
+  --color-red: #FF453A;
+  --color-orange: #FF9F0A;
+  --color-yellow: #FFD60A;
+  --color-purple: #BF5AF2;
+  --color-pink: #FF375F;
+  --color-teal: #64D2FF;
+  --color-indigo: #5E5CE6;
+  
+  --gray-1: #8E8E93;
+  --gray-2: #636366;
+  --gray-3: #48484A;
+  --gray-4: #3A3A3C;
+  --gray-5: #2C2C2E;
+  --gray-6: #1C1C1E;
+  
+  --separator: rgba(84, 84, 88, 0.65);
+  --separator-opaque: #38383A;
+  
+  --fill-primary: rgba(120, 120, 128, 0.36);
+  --fill-secondary: rgba(120, 120, 128, 0.32);
+  --fill-tertiary: rgba(118, 118, 128, 0.24);
+  
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
