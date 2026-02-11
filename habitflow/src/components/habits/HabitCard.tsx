@@ -25,7 +25,7 @@ export function HabitCard({ habit, onToggle, onEdit }: HabitCardProps) {
   const isCompleted = count >= targetCount;
 
   // Dynamically get icon component
-  const IconComponent = (Icons as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[icon] || Icons.Circle;
+  const IconComponent = (Icons as unknown as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[icon] || Icons.Circle;
 
   return (
     <div className={`habit-card ${isCompleted ? 'habit-card--completed' : ''}`}>

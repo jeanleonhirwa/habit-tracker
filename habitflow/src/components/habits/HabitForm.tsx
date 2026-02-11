@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as Icons from 'lucide-react';
 import { Habit, HabitColor, FrequencyType } from '../../types/habit';
 import { Button, Input, SegmentedControl } from '../ui';
@@ -107,7 +107,7 @@ export function HabitForm({ habit, onSubmit, onDelete, onCancel }: HabitFormProp
         <label className="habit-form__label">Icon</label>
         <div className="habit-form__icons">
           {iconOptions.map((iconName) => {
-            const IconComponent = (Icons as Record<string, React.ComponentType<{ size?: number }>>)[iconName];
+            const IconComponent = (Icons as unknown as Record<string, React.ComponentType<{ size?: number }>>)[iconName];
             if (!IconComponent) return null;
             
             return (

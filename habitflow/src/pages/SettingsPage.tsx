@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Moon, Sun, Monitor, Download, Upload, Trash2, Info } from 'lucide-react';
 import { useSettingsStore } from '../stores/settingsStore';
-import { Switch, Button, CardGroup } from '../components/ui';
+import { Switch, CardGroup } from '../components/ui';
 import { db } from '../db/database';
 import { ThemeMode } from '../types/settings';
 import './SettingsPage.css';

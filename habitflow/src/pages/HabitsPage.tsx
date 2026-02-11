@@ -116,7 +116,7 @@ export function HabitsPage() {
         {displayHabits.length > 0 ? (
           <CardGroup>
             {displayHabits.map((habit) => {
-              const IconComponent = (Icons as Record<string, React.ComponentType<{ size?: number }>>)[habit.icon] || Icons.Circle;
+              const IconComponent = (Icons as unknown as Record<string, React.ComponentType<{ size?: number }>>)[habit.icon] || Icons.Circle;
               
               return (
                 <div key={habit.id} className="habits-page__item">

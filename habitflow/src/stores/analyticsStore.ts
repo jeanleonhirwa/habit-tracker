@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { db, getCompletionsInRange, getActiveHabits } from '../db/database';
-import { Habit, Completion } from '../types/habit';
+import { Completion } from '../types/habit';
 import { OverallStats, HabitStats, HeatmapCell, WeeklyData } from '../types/analytics';
 import { 
   formatDateKey, 
@@ -70,7 +70,6 @@ export const useAnalyticsStore = create<AnalyticsState>((set, get) => ({
 
       // Day of week completion counts
       const dayCompletions: number[] = [0, 0, 0, 0, 0, 0, 0];
-      const dayExpected: number[] = [0, 0, 0, 0, 0, 0, 0];
 
       for (const habit of habits) {
         const habitCompletions = completionsByHabit.get(habit.id) || [];

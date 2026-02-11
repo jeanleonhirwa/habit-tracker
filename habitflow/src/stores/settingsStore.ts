@@ -28,7 +28,7 @@ function applyTheme(theme: ThemeMode) {
 
 // Listen for system theme changes
 if (typeof window !== 'undefined') {
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     const settings = useSettingsStore.getState().settings;
     if (settings.theme === 'system') {
       applyTheme('system');

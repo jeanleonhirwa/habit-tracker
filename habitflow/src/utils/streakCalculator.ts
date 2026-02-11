@@ -82,7 +82,6 @@ export function calculateStreak(
     if (i === 0) {
       tempStreak = 1;
     } else {
-      const prevDate = parseDateKey(sortedDates[i - 1]);
       
       // Check if consecutive (accounting for skipped days)
       let daysBetween = 1;

@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { v4 as uuidv4 } from 'uuid';
 import { db, getActiveHabits, getCompletionsForDate } from '../db/database';
-import { Habit, Completion, HabitWithCompletion, HabitColor, FrequencyType } from '../types/habit';
-import { formatDateKey, getTodayKey } from '../utils/dateUtils';
+import { Habit, Completion, HabitWithCompletion } from '../types/habit';
+import { getTodayKey } from '../utils/dateUtils';
 import { calculateStreak } from '../utils/streakCalculator';
 
 interface HabitState {
