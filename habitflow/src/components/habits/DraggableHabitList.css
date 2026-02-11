@@ -1,0 +1,100 @@
+.draggable-habit-list {
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.draggable-habit-list--dragging {
+  user-select: none;
+}
+
+.draggable-habit-item {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--separator);
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.15s ease;
+  background-color: var(--bg-elevated);
+}
+
+.draggable-habit-item:last-child {
+  border-bottom: none;
+}
+
+.draggable-habit-item--dragging {
+  opacity: 0.6;
+  background-color: var(--fill-tertiary);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+}
+
+.draggable-habit-item--target {
+  background-color: var(--fill-tertiary);
+}
+
+.draggable-habit-item__handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-2) 0 var(--space-3);
+  color: var(--text-quaternary);
+  cursor: grab;
+  touch-action: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.draggable-habit-item__handle:hover {
+  color: var(--text-secondary);
+  background-color: var(--fill-tertiary);
+}
+
+.draggable-habit-item__handle:active {
+  cursor: grabbing;
+  color: var(--color-blue);
+}
+
+.draggable-habit-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Remove default card styling when inside draggable list */
+.draggable-habit-item__content .habit-card {
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* Visual feedback during drag */
+.draggable-habit-list--dragging .draggable-habit-item:not(.draggable-habit-item--dragging) {
+  transition: transform 0.2s ease;
+}
+
+/* Drop indicator line */
+.draggable-habit-item--target::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background-color: var(--color-blue);
+  z-index: 1;
+}
+
+/* Mobile touch feedback */
+@media (hover: none) {
+  .draggable-habit-item__handle {
+    padding: 0 var(--space-3);
+  }
+  
+  .draggable-habit-item__handle:active {
+    background-color: var(--fill-secondary);
+  }
+}
+
+/* Accessibility: focus state for keyboard */
+.draggable-habit-item__handle:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: -2px;
+  background-color: var(--fill-tertiary);
+}

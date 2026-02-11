@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useHabitStore } from '../stores/habitStore';
-import { HabitCard, HabitForm, HabitFormData } from '../components/habits';
+import { HabitForm, HabitFormData, DraggableHabitList } from '../components/habits';
 import { ProgressRing } from '../components/analytics';
-import { Button, Sheet, CardGroup } from '../components/ui';
+import { Button, Sheet } from '../components/ui';
 import { HabitWithCompletion } from '../types/habit';
 import { formatDisplayDate, getTodayKey, formatDateKey, addDays, subDays, parseDateKey } from '../utils/dateUtils';
 import './TodayPage.css';
@@ -17,6 +17,7 @@ export function TodayPage() {
     addHabit,
     updateHabit,
     deleteHabit,
+    reorderHabits,
     getHabitsWithCompletions,
     fetchCompletionsForDate,
   } = useHabitStore();
@@ -78,6 +79,13 @@ export function TodayPage() {
     if (!editingHabit) return;
     await deleteHabit(editingHabit.id);
     setEditingHabit(null);
+  };
+
+  const handleReorder = async (reorderedHabits: HabitWithCompletion[]) => {
+    // Update local state immediately for smooth UX
+    setHabitsWithCompletions(reorderedHabits);
+    // Persist to database
+    await reorderHabits(reorderedHabits.map(h => h.id));
   };
 
   const goToPreviousDay = () => {
@@ -189,16 +197,12 @@ export function TodayPage() {
             <div className="today-page__skeleton" />
           </div>
         ) : habitsWithCompletions.length > 0 ? (
-          <CardGroup>
-            {habitsWithCompletions.map((habit) => (
-              <HabitCard
-                key={habit.id}
-                habit={habit}
-                onToggle={() => handleToggle(habit.id)}
-                onEdit={() => setEditingHabit(habit)}
-              />
-            ))}
-          </CardGroup>
+          <DraggableHabitList
+            habits={habitsWithCompletions}
+            onReorder={handleReorder}
+            onToggle={handleToggle}
+            onEdit={setEditingHabit}
+          />
         ) : (
           <div className="today-page__empty">
             <span className="today-page__empty-icon">🌱</span>
